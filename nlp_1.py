@@ -1,5 +1,5 @@
 from textblob import TextBlob
-
+import nltk
 text = "Today is a beautiful day. Tomorrow looks like bad weather."
 
 blob = TextBlob(text)
@@ -29,6 +29,7 @@ for i in sentences:
 from textblob.sentiments import NaiveBayesAnalyzer
 
 blob = TextBlob(text,analyzer = NaiveBayesAnalyzer())
+'''
 print(blob.sentiment)
 
 for i in blob.sentences:
@@ -51,3 +52,35 @@ print(hindi)
 
 english = chinese.translate(to = 'en')
 print(english)
+'''
+from textblob import Word
+
+index = Word('index')
+cacti = Word('cacti')
+
+print(index.pluralize())
+print(cacti.singularize())
+
+animals = TextBlob('dog cat fish bird').words
+print(animals.pluralize())
+
+#Spellcheck and Corrections
+#import nltk
+#from nltk.stem import WordNetLemmatizer
+word = Word('theyr')
+print(word.spellcheck())
+print(word.correct())
+
+#Stemming and Lemmatizing
+
+word1 = Word('studies')
+word2 = Word('varieties')
+
+
+#print(word1.lemmatize())
+#print(word2.lemmatize())
+
+#Synonyms and Antonyms
+
+happy = Word('happy')
+print(happy.definitions())
